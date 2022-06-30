@@ -42,13 +42,23 @@ from rest_framework.pagination import PageNumberPagination
 class CreateFilmView(generics.CreateAPIView):
     queryset = Film.objects.all()
     serializer_class = FilmSerializer
-    serializer_classes = [permissions.IsAdminUser]
+    permission_classes = [permissions.IsAdminUser]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
 
 
-class RetrieveEditDestroyFilmView(generics.RetrieveUpdateDestroyAPIView):
+class UpdateFilmView(generics.UpdateAPIView):
+    queryset = Film.objects.all()
+    serializer_class = FilmSerializer
+    permission_classes = [permissions.IsAdminUser]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+
+class DestroyFilmView(generics.DestroyAPIView):
     queryset = Film.objects.all()
     serializer_class = FilmSerializer
     permission_classes = [permissions.IsAdminUser]
@@ -67,3 +77,13 @@ class FilmListView(generics.ListAPIView):
 
     def get_serializer_context(self):
         return {'request': self.request}
+
+
+class FilmDetailView(generics.RetrieveAPIView):
+    queryset = Film.objects.all()
+    serializer_class = FilmSerializer
+
+
+
+
+
