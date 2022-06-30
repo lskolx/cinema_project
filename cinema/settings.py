@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'apps.account',
     'apps.movie',
     'apps.genre',
+    'apps.comment',
+    
+
     
 
 ]
