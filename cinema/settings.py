@@ -40,9 +40,8 @@ INSTALLED_APPS = [
     'apps.movie',
     'apps.genre',
     'apps.comment',
-    
+    'apps.rating',
 
-    
 
 ]
 

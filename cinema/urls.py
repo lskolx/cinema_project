@@ -5,6 +5,7 @@ from django.urls import path, include
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from apps.rating.views import RatingViewSet
 
 from cinema import settings
 
@@ -28,6 +29,7 @@ urlpatterns = [
    path('films/', include('apps.movie.urls')),
    path('genres/', include('apps.genre.urls')),
    path('comment/', include('apps.comment.urls')),
+   path('rating/', include('apps.rating.urls')),
    
 
 
