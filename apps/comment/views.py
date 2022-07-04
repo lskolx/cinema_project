@@ -11,7 +11,7 @@ from apps.comment.serializers import CommentSerializer
 class CommentViewSet(viewsets.ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
-    permission_classes = IsCommentAuthor
+    permission_classes = [IsCommentAuthor]
 
     def get_permissions(self):
         if self.action in ['list', 'retrieve']:
